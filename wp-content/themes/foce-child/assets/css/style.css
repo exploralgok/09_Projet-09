@@ -21,7 +21,7 @@ Version: 0.1
 @keyframes rotating {
   100% {
     transform: rotate(360deg); } }
-* ::after {
+.story h2::after, .story__article::after, #studio h2::after, .site-footer::after, .site-footer ul::after {
   animation: rotating 20s linear infinite; }
 
 #studio h2::before, .site-footer::before {
@@ -139,6 +139,11 @@ Version: 0.1
   padding-top: 50px;
   padding-bottom: 50px; }
 
+@keyframes moveleft {
+  0% {
+    transform: translatex(0px); }
+  100% {
+    transform: translatex(-300px); } }
 .story #characters {
   flex-direction: column;
   width: 100%; }
@@ -159,5 +164,23 @@ Version: 0.1
         flex-direction: column;
         width: 400px;
         justify-content: space-between; }
+.story #place {
+  background-image: url("../images/Studio_Koukaki-image_place.png") !important; }
+  .story #place::before {
+    content: url("../images/big_cloud.png");
+    display: block;
+    position: absolute;
+    right: 100px;
+    bottom: 500px;
+    filter: blur(10px);
+    animation: moveleft 6s ease-in-out infinite; }
+  .story #place::after {
+    content: url("../images/little_cloud.png");
+    display: block;
+    position: absolute;
+    right: 500px;
+    bottom: 400px;
+    filter: blur(10px);
+    animation: moveleft 6s ease-in-out infinite; }
 
 /*# sourceMappingURL=style.css.map */

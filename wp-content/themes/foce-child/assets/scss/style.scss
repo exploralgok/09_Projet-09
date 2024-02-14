@@ -37,8 +37,8 @@ Version: 0.1
     animation: rotating 20s linear infinite;
 }
 
-* {
-    ::after{
+.story h2, .story__article, #studio h2, .site-footer, .site-footer ul {
+    &::after{
         @include rotating-animation;
     }
 }
@@ -195,34 +195,72 @@ Version: 0.1
 }
 
 
-.story #characters {
+
+@keyframes moveleft {
+    0% {
+        transform: translatex(0px);
+    }
+    100% {
+        transform: translatex(-300px);
+    }
+}
+
+
+.story{
+    
+    #characters {
     flex-direction: column;
     width: 100%;
 
+        h3{
+            background-position: left;
+            text-align: left;
+            margin-left: 100px;
+            padding-left: 45px;
+        }
 
-    h3{
-        background-position: left;
-        text-align: left;
-        margin-left: 100px;
-        padding-left: 45px;
-    }
-
-    .characters{
-        margin-left: 110px;
-        // doit etre flex pour utiliser flex basis dont know why
-        display: flex;
-
-        .swiper-wrapper {
-            background-position: center;
-            background-size: cover;
+        .characters{
+            margin-left: 110px;
+            // doit etre flex pour utiliser flex basis dont know why
             display: flex;
-        
-            .single-characters {
+
+            .swiper-wrapper {
+                background-position: center;
+                background-size: cover;
                 display: flex;
-                flex-direction: column;
-                width: 400px;
-                justify-content: space-between;
-            }  
+            
+                .single-characters {
+                    display: flex;
+                    flex-direction: column;
+                    width: 400px;
+                    justify-content: space-between;
+                }  
+            }
+        }
+    }
+    #place{
+        background-image: url("../images/Studio_Koukaki-image_place.png") !important;
+
+        &::before {
+            content:url("../images/big_cloud.png");
+            display:block;
+            position: absolute;
+            right: 100px;
+            bottom: 500px;
+            filter: blur(10px);
+            animation: moveleft 6s ease-in-out infinite;
+
+        }
+
+        &::after {
+            content:url("../images/little_cloud.png");
+            display:block;
+            position: absolute;
+            right: 500px;
+            bottom: 400px;
+            filter: blur(10px);
+            animation: moveleft 6s ease-in-out infinite;
         }
     }
 }
+
