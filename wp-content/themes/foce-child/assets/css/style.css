@@ -9,6 +9,9 @@ Description: Thème enfant à l'ocasion de la nomination aux Oscars Shorts
 Version: 0.1
 */
 /* General */
+body {
+  background-color: #440000; }
+
 /* fade in section */
 .fadein {
   opacity: 0;
@@ -182,5 +185,99 @@ Version: 0.1
     bottom: 400px;
     filter: blur(10px);
     animation: moveleft 6s ease-in-out infinite; }
+
+#toggle {
+  display: none; }
+
+/**
+  Hamburger
+**/
+.hamburger {
+  position: absolute;
+  top: 2em;
+  right: 11%;
+  z-index: 5; }
+
+.hamburger div {
+  position: relative;
+  width: 3em;
+  height: 1px;
+  background-color: #000000;
+  margin-top: 8px;
+  transition: all 0.3s ease-in-out; }
+
+/**
+Nav Styles
+**/
+.main-navigation {
+  display: flex !important;
+  justify-content: center; }
+
+.main-navigation .site-title a {
+  font-size: 21px;
+  display: flex;
+  justify-content: center; }
+
+.main-navigation .site-title a:active, .main-navigation .site-title a:hover,
+.main-navigation .site-title a:focus {
+  color: #000000; }
+
+.nav {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: #FFF5E9;
+  right: 0;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+  opacity: 0;
+  margin-top: 80px; }
+
+.nav-wrapper {
+  position: relative;
+  overflow: hidden;
+  overflow-y: auto;
+  height: 100%; }
+
+nav {
+  text-align: left; }
+
+nav ul {
+  flex-direction: column; }
+
+nav a {
+  position: relative;
+  text-decoration: none;
+  color: #6ecddd;
+  font-size: 64px;
+  display: inline-block;
+  margin-top: 1.25em;
+  transition: color 0.2s ease-in-out;
+  letter-spacing: 1px; }
+
+.nav a:hover {
+  color: #000000;
+  text-shadow: 0px 0px 14px #FF5C00; }
+
+nav a:hover:before {
+  height: 100%; }
+
+  /**
+Animations
+**/
+#toggle:checked + .hamburger .top-bun {
+  transform: rotate(-45deg);
+  margin-top: 15px; }
+
+#toggle:checked + .hamburger .bottom-bun {
+  opacity: 0;
+  transform: rotate(45deg); }
+
+#toggle:checked + .hamburger .meat {
+  transform: rotate(45deg);
+  margin-top: -1px; }
+
+#toggle:checked + .hamburger + .nav {
+  opacity: 1; }
 
 /*# sourceMappingURL=style.css.map */
