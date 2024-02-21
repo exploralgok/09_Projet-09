@@ -47,7 +47,7 @@
 
                 <div class="nav">
                     <div class="nav-wrapper">
-                        <!-- <div class="nav-logo"><img src="/wp-content/themes/foce-child/assets/images/Image logo en paralax.png" alt=""></div> -->
+                        <div class="nav-logo"><img src="/wp-content/themes/foce-child/assets/images/Image logo en paralax.png" alt=""></div>
                         <nav>
                             <ul>
                                 <li><a href="#story">Histoire</a></li>
@@ -56,7 +56,7 @@
                                 <li><a href="#studio">Studio Koukaki</a></li>
                             </ul>
                         </nav>
-                        <!-- <div class="nav-name"><img src="wp-content/themes/foce-child/assets/images/Studio Koukaki.png" alt=""></div> -->
+                        <div class="nav-name"><img src="wp-content/themes/foce-child/assets/images/Studio Koukaki.png" alt=""></div>
                     </div>
                 </div>
 
