@@ -12,8 +12,12 @@ Version: 0.1
 
 /* General */
 
-body{
-    background-color: $red;
+// body{
+//     background-color: $red;
+// }
+
+.content{
+    background: #FFF5E9;
 }
 
 /* Animation : fade in section */
@@ -100,6 +104,15 @@ body{
 
     ul {
         margin-top: 25% !important;
+
+        li{
+            z-index: 1;
+
+        }
+
+        &::after{
+            z-index:0 !important;
+        }
     }
     
     // non pris en comtpte (meme spécificité que style par défaut)
@@ -142,14 +155,7 @@ body{
 
 /* bannière vidéo */
 
-.banner-video{
-    position: absolute;
-    top: 0;
-    left: 0;
-    object-fit: cover;
-    height: 100%;
-    width: 100%;
-}
+
 
 .video-wrapper {
     /* Telling our absolute positioned video to 
@@ -168,28 +174,50 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
+
+    .banner-video{
+        position: absolute;
+        // top: 0;
+        left: 0;
+        object-fit: cover;
+        height: 100%;
+        // width: 100%;
+    }
+
+     /* effet parallax */
+
+    .parallax{
+        // height: 100vh;
+        background-attachment: fixed; /* Fixe l'image pendant le scroll */
+        background-size: cover; /* L'image prendra 100% de l'espace, quitte à la crop */
+        background-position: center; /* Centre la position de l'image */
+        background-repeat: no-repeat; /* Empêche l'image de se répéter en fonction de la taille d'écran */
+        height: 300px;
+        padding-bottom: 50px;
+        padding-top: 50px; 
+
+        video{ 
+            position: fixed;
+            top:0;
+            z-index: -999;
+            }
+    }
+
+    .logo{
+        z-index:1;
+        width: 680px;
+        height: auto;
+        position: absolute;
+        /* content: "";
+        display: block;
+        height: 120px;
+        width: 100%;
+        background-image: url("/wp-content/themes/foce/assets/images/logo.png"); */
+    }
+
 }
 
-/* effet parallax */
-.logo{
-    z-index:1;
-    width: 680px;
-    height: auto;
-    position: absolute;
-    /* content: "";
-    display: block;
-    height: 120px;
-    width: 100%;
-    background-image: url("/wp-content/themes/foce/assets/images/logo.png"); */
-}
 
-.parallax{
-    height: 100vh;
-    background-attachment: fixed; /* Fixe l'image pendant le scroll */
-    background-size: cover; /* L'image prendra 100% de l'espace, quitte à la crop */
-    background-position: center; /* Centre la position de l'image */
-    background-repeat: no-repeat; /* Empêche l'image de se répéter en fonction de la taille d'écran */
-}
 
 /* Animation : flottement titre header */
 
@@ -337,7 +365,7 @@ body{
         right: 0; 
         // bottom: 0;
         overflow: hidden;
-        transition: all 0.3s ease-in-out;
+        // transition: all 0.3s ease-in-out;
         opacity: 0;
         margin-top:80px;
         display: none;
@@ -526,6 +554,10 @@ body{
                 margin-top: 130px;
             }
         }
+
+        .close-menu{
+            display: none;
+        }
     } 
 }
 
@@ -566,7 +598,6 @@ body{
                 margin-top: -1px;
               }
         
-
             + .nav {
                 opacity: 1;
                 display: unset;

@@ -50,10 +50,10 @@
                         <div class="nav-logo"><img src="/wp-content/themes/foce-child/assets/images/Image logo en paralax.png" alt=""></div>
                         <nav>
                             <ul>
-                                <li class="nav-story"><a href="#story">Histoire</a></li>
-                                <li class="nav-characters"><a href="#characters">Personnages</a></li>
-                                <li class="nav-place"><a href="#place">Lieu</a></li>
-                                <li class="nav-studio"><a href="#studio">Studio Koukaki</a></li>
+                                <li class="nav-item nav-story"><a href="#story">Histoire</a></li>
+                                <li class="nav-item nav-characters"><a href="#characters">Personnages</a></li>
+                                <li class="nav-item nav-place"><a href="#place">Lieu</a></li>
+                                <li class="nav-item nav-studio"><a href="#studio">Studio Koukaki</a></li>
                             </ul>
                         </nav>
                         <div class="nav-name"><img src="wp-content/themes/foce-child/assets/images/Studio Koukaki.png" alt=""></div>

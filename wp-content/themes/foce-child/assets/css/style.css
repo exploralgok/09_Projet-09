@@ -9,8 +9,8 @@ Description: Thème enfant à l'ocasion de la nomination aux Oscars Shorts
 Version: 0.1
 */
 /* General */
-body {
-  background-color: #440000; }
+.content {
+  background: #FFF5E9; }
 
 /* Animation : fade in section */
 .fadein {
@@ -61,6 +61,10 @@ body {
   padding-top: 10em !important; }
   .site-footer ul {
     margin-top: 25% !important; }
+    .site-footer ul li {
+      z-index: 1; }
+    .site-footer ul::after {
+      z-index: 0 !important; }
   .site-footer::after {
     bottom: 42.8em !important; }
   .site-footer #oscars {
@@ -88,14 +92,6 @@ body {
       padding: 50px 0px; }
 
 /* bannière vidéo */
-.banner-video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  object-fit: cover;
-  height: 100%;
-  width: 100%; }
-
 .video-wrapper {
   /* Telling our absolute positioned video to 
   be relative to this element */
@@ -109,30 +105,39 @@ body {
   text-align: center;
   display: flex;
   align-items: center;
-  justify-content: center; }
-
-/* effet parallax */
-.logo {
-  z-index: 1;
-  width: 680px;
-  height: auto;
-  position: absolute;
-  /* content: "";
-  display: block;
-  height: 120px;
-  width: 100%;
-  background-image: url("/wp-content/themes/foce/assets/images/logo.png"); */ }
-
-.parallax {
-  height: 100vh;
-  background-attachment: fixed;
-  /* Fixe l'image pendant le scroll */
-  background-size: cover;
-  /* L'image prendra 100% de l'espace, quitte à la crop */
-  background-position: center;
-  /* Centre la position de l'image */
-  background-repeat: no-repeat;
-  /* Empêche l'image de se répéter en fonction de la taille d'écran */ }
+  justify-content: center;
+  /* effet parallax */ }
+  .video-wrapper .banner-video {
+    position: absolute;
+    left: 0;
+    object-fit: cover;
+    height: 100%; }
+  .video-wrapper .parallax {
+    background-attachment: fixed;
+    /* Fixe l'image pendant le scroll */
+    background-size: cover;
+    /* L'image prendra 100% de l'espace, quitte à la crop */
+    background-position: center;
+    /* Centre la position de l'image */
+    background-repeat: no-repeat;
+    /* Empêche l'image de se répéter en fonction de la taille d'écran */
+    height: 300px;
+    padding-bottom: 50px;
+    padding-top: 50px; }
+    .video-wrapper .parallax video {
+      position: fixed;
+      top: 0;
+      z-index: -999; }
+  .video-wrapper .logo {
+    z-index: 1;
+    width: 680px;
+    height: auto;
+    position: absolute;
+    /* content: "";
+    display: block;
+    height: 120px;
+    width: 100%;
+    background-image: url("/wp-content/themes/foce/assets/images/logo.png"); */ }
 
 /* Animation : flottement titre header */
 @keyframes float {
@@ -229,7 +234,6 @@ body {
     background-color: #FFF5E9;
     right: 0;
     overflow: hidden;
-    transition: opacity 0.3s ease-in-out;
     opacity: 0;
     margin-top: 80px;
     display: none; }
@@ -353,6 +357,8 @@ body {
       .main-navigation .nav .nav-wrapper .nav-name {
         width: 160px;
         margin-top: 130px; }
+    .main-navigation .nav .close-menu {
+      display: none; }
 
 /** Animations : Menu Burger **/
 #toggle {

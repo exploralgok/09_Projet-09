@@ -77,9 +77,15 @@ document.addEventListener("DOMContentLoaded", function(){
     }
   });
 
-});
+// menu burger fermeture menu au click
 
-// menu burger fadin
+itemMenu = document.querySelectorAll('.nav-item');
+
+itemMenu.addEventListener('click', function handleClick() {
+  document.querySelectorAll('.nav').classList.add('close-menu');
+  });
+
+});
 
 
 
