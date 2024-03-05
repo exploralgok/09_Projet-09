@@ -26,9 +26,9 @@ get_header();
 
         <?php get_template_part( 'characters' ); ?>
 
-        <article id="place" class="fadein">
-            <div>
-                <h3 class="reveal-wrapper"><span class="reveal">Le</span> <span class="reveal">Lieu</span></h3>
+        <article id="place" class="fadein parallax-container scroll-up">
+            <div class="parallax-content">
+                <h3 class="reveal-wrapper "><span class="reveal">Le</span> <span class="reveal">Lieu</span></h3>
                 <p><?php echo get_theme_mod('place'); ?></p>
             </div>
 

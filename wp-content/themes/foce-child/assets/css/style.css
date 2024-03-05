@@ -34,6 +34,9 @@ Version: 0.1
   animation: rotating 20s linear infinite;
   line-height: 0; }
 
+*::after, *::before {
+  z-index: 0 !important; }
+
 /* Animation : Titre des sections */
 @keyframes reveal {
   0% {
@@ -42,6 +45,20 @@ Version: 0.1
   100% {
     /*Lorsque le titre est révélé, il est déplacé vers le haut */
     transform: translateY(0); } }
+@keyframes reveal-menu {
+  0% {
+    /*Initiallement, le titre est placé en bas de son conteneur */
+    transform: translateY(500%); }
+  100% {
+    /*Lorsque le titre est révélé, il est déplacé vers le haut */
+    transform: translateY(0); } }
+.reveal-menu {
+  visibility: hidden; }
+
+.reveal-animation-menu {
+  visibility: visible;
+  transition-delay: 0.2s; }
+
 .reveal {
   visibility: hidden; }
 
@@ -50,10 +67,10 @@ Version: 0.1
   transition-delay: 0.2s; }
   .reveal-animation:nth-child(1) {
     display: inline-block;
-    animation: reveal 1.5s ease; }
+    animation: reveal 0.5s ease; }
   .reveal-animation:nth-child(2) {
     display: inline-block;
-    animation: reveal 1.5s 0.2s ease; }
+    animation: reveal 0.5s 0.1s ease; }
 
 /* Footer : nouvelle section footer */
 .site-footer {
@@ -63,8 +80,6 @@ Version: 0.1
     margin-top: 25% !important; }
     .site-footer ul li {
       z-index: 1; }
-    .site-footer ul::after {
-      z-index: 0 !important; }
   .site-footer::after {
     bottom: 42.8em !important; }
   .site-footer #oscars {
@@ -126,7 +141,7 @@ Version: 0.1
     padding-top: 50px; }
     .video-wrapper .parallax video {
       position: fixed;
-      top: 0;
+      top: 80px;
       z-index: -999; }
   .video-wrapper .logo {
     z-index: 1;
@@ -156,11 +171,16 @@ Version: 0.1
   padding-top: 50px;
   padding-bottom: 50px; }
 
-@keyframes moveleft {
+@keyframes moveLeft {
   0% {
     transform: translatex(0px); }
   100% {
     transform: translatex(-300px); } }
+@keyframes moveRight {
+  0% {
+    transform: translatex(-300px); }
+  100% {
+    transform: translatex(0px); } }
 .story #characters {
   flex-direction: column;
   width: 100%; }
@@ -183,22 +203,28 @@ Version: 0.1
         justify-content: space-between; }
 .story #place {
   background-image: url("../images/Studio_Koukaki-image_place.png") !important; }
+  .story #place::before, .story #place::after {
+    display: block;
+    position: absolute;
+    filter: blur(10px); }
   .story #place::before {
     content: url("../images/big_cloud.png");
-    display: block;
-    position: absolute;
     right: 100px;
     bottom: 500px;
-    filter: blur(10px);
-    animation: moveleft 6s ease-in-out infinite; }
+    transform: translateX(var(--posX)); }
   .story #place::after {
     content: url("../images/little_cloud.png");
-    display: block;
-    position: absolute;
     right: 500px;
     bottom: 400px;
-    filter: blur(10px);
-    animation: moveleft 6s ease-in-out infinite; }
+    transform: translateX(var(--posX)); }
+  .story #place.scroll-up::before {
+    animation-name: moveRight; }
+  .story #place.scroll-down::before {
+    animation-name: moveLeft; }
+  .story #place.scroll-up::after {
+    animation-name: moveRight; }
+  .story #place.scroll-down::after {
+    animation-name: moveLeft; }
 
 /** Hamburger **/
 .hamburger {
@@ -236,7 +262,10 @@ Version: 0.1
     overflow: hidden;
     opacity: 0;
     margin-top: 80px;
-    display: none; }
+    margin-right: 120px;
+    display: block;
+    max-width: 1440px;
+    max-height: 900px; }
     .main-navigation .nav .nav-wrapper {
       position: relative;
       overflow: hidden;
@@ -251,7 +280,8 @@ Version: 0.1
       .main-navigation .nav .nav-wrapper nav ul {
         flex-direction: column; }
         .main-navigation .nav .nav-wrapper nav ul li {
-          margin-top: 30px; }
+          margin-top: 30px;
+          visibility: hidden; }
           .main-navigation .nav .nav-wrapper nav ul li a {
             position: relative;
             text-decoration: none;
@@ -352,8 +382,8 @@ Version: 0.1
           background-size: contain;
           background-repeat: no-repeat;
           position: absolute;
-          top: 0px;
-          left: 125%; }
+          top: 30%;
+          left: 150%; }
       .main-navigation .nav .nav-wrapper .nav-name {
         width: 160px;
         margin-top: 130px; }
@@ -363,6 +393,8 @@ Version: 0.1
 /** Animations : Menu Burger **/
 #toggle {
   display: none; }
+  #toggle:checked + .site-main {
+    display: none; }
   #toggle:checked + .hamburger .top-bun {
     transform: rotate(-45deg);
     margin-top: 15px; }
@@ -374,14 +406,22 @@ Version: 0.1
     margin-top: -1px; }
   #toggle:checked + .hamburger + .nav {
     opacity: 1;
-    display: unset; }
-    #toggle:checked + .hamburger + .nav li:nth-child(1) {
-      animation: reveal 1.5s 0s ease; }
-    #toggle:checked + .hamburger + .nav li:nth-child(2) {
-      animation: reveal 1.5s 0.2s ease; }
-    #toggle:checked + .hamburger + .nav li:nth-child(3) {
-      animation: reveal 1.5s 0.4s ease; }
-    #toggle:checked + .hamburger + .nav li:nth-child(4) {
-      animation: reveal 1.5s 0.6s ease; }
+    transition: opacity 2s ease 0s; }
+    #toggle:checked + .hamburger + .nav .nav-wrapper li:nth-child(1) {
+      visibility: visible;
+      animation: reveal-menu 1.5s 0s ease;
+      transition: visibility 1.5s 0s ease; }
+    #toggle:checked + .hamburger + .nav .nav-wrapper li:nth-child(2) {
+      visibility: visible;
+      animation: reveal-menu 1.5s 0.2s ease;
+      transition: visibility 1.5s 0.2s ease; }
+    #toggle:checked + .hamburger + .nav .nav-wrapper li:nth-child(3) {
+      visibility: visible;
+      animation: reveal-menu 1.5s 0.4s ease;
+      transition: visibility 1.5s 0.4s ease; }
+    #toggle:checked + .hamburger + .nav .nav-wrapper li:nth-child(4) {
+      visibility: visible;
+      animation: reveal-menu 1.5s 0.6s ease;
+      transition: visibility 1.5s 0.6s ease; }
 
 /*# sourceMappingURL=style.css.map */
