@@ -5,8 +5,10 @@ get_header();
 <main id="primary" class="site-main">
     <div class="video-wrapper">
         <div class="parallax banner-video">
-            <video autoplay muted loop poster="<?php echo get_template_directory_uri() . '/assets/images/banner.png'; ?>">
-                <source src="<?php echo get_stylesheet_directory_uri() . '/assets/videos/Studio+Koukaki-vidéo+header+sans+son+(1).mp4'; ?>">
+            <video autoplay muted loop
+                poster="<?php echo get_template_directory_uri() . '/assets/images/banner.png'; ?>">
+                <source
+                    src="<?php echo get_stylesheet_directory_uri() . '/assets/videos/Studio+Koukaki-vidéo+header+sans+son+(1).mp4'; ?>">
             </video>
         </div>
         <img class="logo floating" src="<?php echo get_template_directory_uri() . '/assets/images/logo.png'; ?> "
