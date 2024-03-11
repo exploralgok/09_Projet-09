@@ -1,0 +1,88 @@
+/* Animation : fade in section */
+
+.fadein {
+    opacity: 0;
+    transition: opacity 1s ease 0s;
+}
+
+.anim {
+    opacity: 1;
+}
+
+/* Animation : rotation des fleurs */
+
+@keyframes rotating {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@mixin rotating-animation {
+    animation: rotating 20s linear infinite;
+}
+
+/* Animation : Titre des sections */
+
+@keyframes reveal {
+    0% {
+        /*Initiallement, le titre est placé en bas de son conteneur */
+        transform: translateY(500%);
+    }
+    100% {
+        /*Lorsque le titre est révélé, il est déplacé vers le haut */
+        transform: translateY(0);
+        // visibility: visible;
+    }
+}
+
+/* Animation : Titre du menu */
+
+@keyframes reveal-menu {
+    0% {
+        /*Initiallement, le titre est placé en bas de son conteneur */
+        transform: translateY(500%);
+       //  visibility: hidden;
+    }
+
+    100% {
+        /*Lorsque le titre est révélé, il est déplacé vers le haut */
+        transform: translateY(0);
+       //   transition-delay: 0.2s;
+       //  visibility: visible !important;
+    }
+}
+
+
+/* Animation : flottement titre header */
+
+@keyframes float {
+    0% {
+        transform: translatey(0px);
+    }
+    50% {
+        transform: translatey(-20px);
+    }
+    100% {
+        transform: translatey(0px);
+    }
+}
+
+/* Animation : Personnages carroussel */
+
+@keyframes moveLeft {
+    0% {
+        transform: translatex(0px);
+    }
+    100% {
+        transform: translatex(-300px);
+    }
+}
+
+ @keyframes moveRight {
+     0% {
+         transform: translatex(-300px);
+     }
+     100% {
+         transform: translatex(0px);
+     }
+ }

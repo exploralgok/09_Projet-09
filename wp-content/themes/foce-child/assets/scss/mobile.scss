@@ -1,0 +1,42 @@
+@media screen and (max-width: 1200px) {
+
+    // no scroll x
+    .site-main {
+        overflow-x: hidden;
+    }
+
+    // menu
+    .site-footer {
+        #oscars {
+            flex-direction: column;
+            margin: auto;
+
+            .background {
+                // color:#FF5C00;
+                background-size: cover;
+
+                h3 {
+                    font-size: 25px;
+
+                }
+            }
+        }
+    }
+
+    .story #characters {
+        h3 {
+            margin-left: unset;
+        }
+
+        .characters {
+            margin-left: unset;
+        }
+    }
+
+    .main-navigation {
+        ul {
+            display: flex !important;
+            text-align: center;
+        }
+    }
+}

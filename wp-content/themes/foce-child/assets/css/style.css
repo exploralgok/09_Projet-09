@@ -8,10 +8,6 @@ Template: foce
 Description: Thème enfant à l'ocasion de la nomination aux Oscars Shorts
 Version: 0.1
 */
-/* General */
-.content {
-  background: #FFF5E9; }
-
 /* Animation : fade in section */
 .fadein {
   opacity: 0;
@@ -24,19 +20,6 @@ Version: 0.1
 @keyframes rotating {
   100% {
     transform: rotate(360deg); } }
-.story h2::after, .story__article::after, #studio h2::after, .site-footer::after, .site-footer ul::after,
-.nav-story::after, .nav-characters::after, .nav-studio::after {
-  animation: rotating 20s linear infinite;
-  line-height: 0; }
-
-#studio h2::before, .site-footer::before,
-.nav-story::before, .nav-place::before {
-  animation: rotating 20s linear infinite;
-  line-height: 0; }
-
-*::after, *::before {
-  z-index: 0 !important; }
-
 /* Animation : Titre des sections */
 @keyframes reveal {
   0% {
@@ -45,6 +28,7 @@ Version: 0.1
   100% {
     /*Lorsque le titre est révélé, il est déplacé vers le haut */
     transform: translateY(0); } }
+/* Animation : Titre du menu */
 @keyframes reveal-menu {
   0% {
     /*Initiallement, le titre est placé en bas de son conteneur */
@@ -52,26 +36,25 @@ Version: 0.1
   100% {
     /*Lorsque le titre est révélé, il est déplacé vers le haut */
     transform: translateY(0); } }
-.reveal-menu {
-  visibility: hidden; }
-
-.reveal-animation-menu {
-  visibility: visible;
-  transition-delay: 0.2s; }
-
-.reveal {
-  visibility: hidden; }
-
-.reveal-animation {
-  visibility: visible;
-  transition-delay: 0.2s; }
-  .reveal-animation:nth-child(1) {
-    display: inline-block;
-    animation: reveal 0.5s ease; }
-  .reveal-animation:nth-child(2) {
-    display: inline-block;
-    animation: reveal 0.5s 0.1s ease; }
-
+/* Animation : flottement titre header */
+@keyframes float {
+  0% {
+    transform: translatey(0px); }
+  50% {
+    transform: translatey(-20px); }
+  100% {
+    transform: translatey(0px); } }
+/* Animation : Personnages carroussel */
+@keyframes moveLeft {
+  0% {
+    transform: translatex(0px); }
+  100% {
+    transform: translatex(-300px); } }
+@keyframes moveRight {
+  0% {
+    transform: translatex(-300px); }
+  100% {
+    transform: translatex(0px); } }
 /* Footer : nouvelle section footer */
 .site-footer {
   flex-direction: column;
@@ -155,32 +138,9 @@ Version: 0.1
     background-image: url("/wp-content/themes/foce/assets/images/logo.png"); */ }
 
 /* Animation : flottement titre header */
-@keyframes float {
-  0% {
-    transform: translatey(0px); }
-  50% {
-    transform: translatey(-20px); }
-  100% {
-    transform: translatey(0px); } }
 .floating {
   animation: float 6s ease-in-out infinite; }
 
-/* Animation : Personnages carroussel */
-.swiper {
-  width: 100%;
-  padding-top: 50px;
-  padding-bottom: 50px; }
-
-@keyframes moveLeft {
-  0% {
-    transform: translatex(0px); }
-  100% {
-    transform: translatex(-300px); } }
-@keyframes moveRight {
-  0% {
-    transform: translatex(-300px); }
-  100% {
-    transform: translatex(0px); } }
 .story #characters {
   flex-direction: column;
   width: 100%; }
@@ -226,6 +186,12 @@ Version: 0.1
   .story #place.scroll-down::after {
     animation-name: moveLeft; }
 
+/* Animation : Personnages carroussel */
+.swiper {
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 50px; }
+
 /** Hamburger **/
 .hamburger {
   position: absolute;
@@ -243,55 +209,44 @@ Version: 0.1
 /** Nav Styles **/
 .main-navigation {
   display: flex !important;
-  justify-content: center; }
-  .main-navigation .site-title {
-    display: flex;
-    align-items: center; }
-    .main-navigation .site-title a {
-      font-size: 21px;
-      display: flex;
-      justify-content: center; }
-      .main-navigation .site-title a:active, .main-navigation .site-title a:hover, .main-navigation .site-title a:focus {
-        color: #000000; }
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap; }
+  .main-navigation a:active, .main-navigation a:hover, .main-navigation a:focus {
+    color: #000000; }
   .main-navigation .nav {
     position: fixed;
     width: 100%;
-    height: 100%;
     background-color: #FFF5E9;
-    right: 0;
     overflow: hidden;
-    opacity: 0;
     margin-top: 80px;
-    margin-right: 120px;
-    display: block;
     max-width: 1440px;
-    max-height: 900px; }
+    max-height: 900px;
+    opacity: 0;
+    transition: opacity 0.5s ease; }
     .main-navigation .nav .nav-wrapper {
-      position: relative;
-      overflow: hidden;
-      overflow-y: auto;
-      height: 100%;
-      display: flex;
       flex-direction: column;
-      align-items: center; }
+      align-items: center;
+      display: none; }
       .main-navigation .nav .nav-wrapper .nav-logo {
         width: 154px;
         margin-top: 40px; }
       .main-navigation .nav .nav-wrapper nav ul {
-        flex-direction: column; }
-        .main-navigation .nav .nav-wrapper nav ul li {
+        flex-direction: column;
+        align-items: center; }
+        .main-navigation .nav .nav-wrapper nav ul .nav-item {
           margin-top: 30px;
-          visibility: hidden; }
-          .main-navigation .nav .nav-wrapper nav ul li a {
-            position: relative;
+          transform: translateY(1000px);
+          transition: transform 2s ease 0s; }
+          .main-navigation .nav .nav-wrapper nav ul .nav-item a {
             text-decoration: none;
             font-size: 64px;
             display: inline-block;
             letter-spacing: 1px; }
-            .main-navigation .nav .nav-wrapper nav ul li a:hover {
+            .main-navigation .nav .nav-wrapper nav ul .nav-item a:hover {
               color: #000000;
               text-shadow: 0px 0px 14px #FF5C00; }
-              .main-navigation .nav .nav-wrapper nav ul li a:hover::before {
+              .main-navigation .nav .nav-wrapper nav ul .nav-item a:hover::before {
                 height: 100%; }
         .main-navigation .nav .nav-wrapper nav ul .nav-story::before {
           content: "";
@@ -393,8 +348,6 @@ Version: 0.1
 /** Animations : Menu Burger **/
 #toggle {
   display: none; }
-  #toggle:checked + .site-main {
-    display: none; }
   #toggle:checked + .hamburger .top-bun {
     transform: rotate(-45deg);
     margin-top: 15px; }
@@ -405,23 +358,70 @@ Version: 0.1
     transform: rotate(45deg);
     margin-top: -1px; }
   #toggle:checked + .hamburger + .nav {
-    opacity: 1;
-    transition: opacity 2s ease 0s; }
-    #toggle:checked + .hamburger + .nav .nav-wrapper li:nth-child(1) {
-      visibility: visible;
-      animation: reveal-menu 1.5s 0s ease;
-      transition: visibility 1.5s 0s ease; }
-    #toggle:checked + .hamburger + .nav .nav-wrapper li:nth-child(2) {
-      visibility: visible;
-      animation: reveal-menu 1.5s 0.2s ease;
-      transition: visibility 1.5s 0.2s ease; }
-    #toggle:checked + .hamburger + .nav .nav-wrapper li:nth-child(3) {
-      visibility: visible;
-      animation: reveal-menu 1.5s 0.4s ease;
-      transition: visibility 1.5s 0.4s ease; }
-    #toggle:checked + .hamburger + .nav .nav-wrapper li:nth-child(4) {
-      visibility: visible;
-      animation: reveal-menu 1.5s 0.6s ease;
-      transition: visibility 1.5s 0.6s ease; }
+    height: 100%;
+    opacity: 1; }
+    #toggle:checked + .hamburger + .nav .nav-wrapper {
+      display: flex; }
+      #toggle:checked + .hamburger + .nav .nav-wrapper ul .nav-item-anim {
+        transform: translateY(0); }
+
+@media screen and (max-width: 1200px) {
+  .site-main {
+    overflow-x: hidden; }
+
+  .site-footer #oscars {
+    flex-direction: column;
+    margin: auto; }
+    .site-footer #oscars .background {
+      background-size: cover; }
+      .site-footer #oscars .background h3 {
+        font-size: 25px; }
+
+  .story #characters h3 {
+    margin-left: unset; }
+  .story #characters .characters {
+    margin-left: unset; }
+
+  .main-navigation ul {
+    display: flex !important;
+    text-align: center; } }
+/* General */
+.content {
+  background: #FFF5E9; }
+
+/* Animation : rotation des fleurs */
+.story h2::after, .story__article::after, #studio h2::after, .site-footer::after, .site-footer ul::after,
+.nav-story::after, .nav-characters::after, .nav-studio::after {
+  animation: rotating 20s linear infinite;
+  line-height: 0; }
+
+#studio h2::before, .site-footer::before,
+.nav-story::before, .nav-place::before {
+  animation: rotating 20s linear infinite;
+  line-height: 0; }
+
+*::after, *::before {
+  z-index: 0 !important; }
+
+/* Animation : Titre du menu */
+.reveal-menu {
+  visibility: hidden; }
+
+.reveal-animation-menu {
+  visibility: visible;
+  transition-delay: 0.2s; }
+
+.reveal {
+  visibility: hidden; }
+
+.reveal-animation {
+  visibility: visible;
+  transition-delay: 0.2s; }
+  .reveal-animation:nth-child(1) {
+    display: inline-block;
+    animation: reveal 0.5s 0.1s ease; }
+  .reveal-animation:nth-child(2) {
+    display: inline-block;
+    animation: reveal 0.5s 0.2s ease; }
 
 /*# sourceMappingURL=style.css.map */

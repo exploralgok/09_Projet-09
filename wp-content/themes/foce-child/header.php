@@ -40,7 +40,7 @@
                 <div class="nav">
                     <div class="nav-wrapper">
                         <div class="nav-logo"><img
-                                src="<?php echo get_stylesheet_directory() . '/assets/images/Image logo en paralax.png'; ?>" alt="">
+                                src="<?php echo get_stylesheet_directory_uri() . '/assets/images/Image logo en paralax.png'; ?>" alt="">
                         </div>
                         <nav>
                             <ul>
@@ -50,10 +50,9 @@
                                 <li class="nav-item nav-studio"><a href="#studio">Studio Koukaki</a></li>
                             </ul>
                         </nav>
-                        <div class="nav-name"><img src="<?php get_stylesheet_directory() . '/assets/images/Studio Koukaki.png'; ?>" alt="">
+                        <div class="nav-name"><img src="<?php echo get_stylesheet_directory_uri() . '/assets/images/Studio Koukaki.png'; ?>" alt="">
                         </div>
                     </div>
                 </div>
-
             </nav><!-- #site-navigation -->
         </header><!-- #masthead -->
